@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="整改结果字典" type="xml">
+    <item id="01" text="完成"></item>
+</dic>

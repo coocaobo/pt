@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="BASE_USER" table="BASE_USER">
+		<id name="LOGONID" type="java.lang.String">
+	    	<column name="LOGONID"/>
+			<generator class="assigned" />
+		</id>
+		<property name="EMPID" type="java.lang.Long" length="32" />
+		<property name="PASSWORD" type="java.lang.String" length="50" />
+		<property name="CTD" type="java.util.Date" />
+	</class>
+</hibernate-mapping>

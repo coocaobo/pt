@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="全部菜单字典" type="custom" serviceId="menuDicServer" actionId="allMenu">
+</dic>

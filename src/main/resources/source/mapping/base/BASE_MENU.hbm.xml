@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class entity-name="BASE_MENU" table="BASE_MENU">
+        <id name="MENUID" type="java.lang.Long">
+            <column name="MENUID"/>
+            <generator class="increment"/>
+        </id>
+        <property name="CATID" type="java.lang.Long" length="32"/>
+        <property name="MENUNAME" type="java.lang.String" length="32"/>
+        <property name="PY" type="java.lang.String" length="32"/>
+        <property name="MENUICON" type="java.lang.String" length="32"/>
+        <property name="MENUPATH" type="java.lang.String" length="200"/>
+        <property name="SCHEMAID" type="java.lang.String" length="200"/>
+        <property name="DR" type="java.lang.String" length="1"/>
+        <property name="INTURN" type="java.lang.Integer"/>
+    </class>
+</hibernate-mapping>

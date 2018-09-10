@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="所有员工字典" type="table" idField="EMPID" textField="EMPNAME" parentIdField="" entity="BASE_EMPLOYEE"
+     cnd="['eq', ['$', 'DR'], ['s', '0']]" order="EMPID">
+</dic>

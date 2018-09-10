@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_FILE_APP" alias="上传文件信息" order=" FILEAPPID desc ">
+    <item id="FILEAPPID" alias="编号" type="long" display="0" pkey="true"/>
+    <item id="APPTYPE" alias="应用类型" length="100" allowBlank="0" width="200"/>
+    <item id="APPPKEY" alias="应用主键"  length="100" allowBlank="0" width="100"  />
+    <item id="FILEID" alias="文件ID" type="long"/>
+    <item id="CTD" alias="记录时间" type="date" display="1" width="150" createSysVal="d_now" rendererFormat="Y-m-d H:i:s"/>
+</entry>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="隐患分类字典" type="xml">
+    <item id="01" text="工艺"></item>
+    <item id="02" text="设备"></item>
+    <item id="03" text="仪表"></item>
+    <item id="04" text="电气"></item>
+    <item id="05" text="安全"></item>
+    <item id="06" text="土建"></item>
+    <item id="07" text="其他"></item>
+</dic>

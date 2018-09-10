@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="二级菜单字典" type="table" idField="ROLEID" textField="ROLENAME" parentIdField="" entity="BASE_ROLE"
+     cnd="['eq', ['$', 'DR'], ['s', '0']]" order="ROLENAME">
+    <props>
+        <prop field="ROLEID"/>
+    </props>
+</dic>

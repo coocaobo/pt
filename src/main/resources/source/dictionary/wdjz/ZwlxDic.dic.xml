@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="账务类型" type="xml">
+    <item id="1" text="进账"></item>
+    <item id="0" text="消费"></item>
+</dic>

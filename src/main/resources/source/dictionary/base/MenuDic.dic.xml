@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="二级菜单字典" type="table" idField="MENUID" textField="MENUNAME" parentIdField="" entity="BASE_MENU"
+     cnd="['eq', ['$', 'DR'], ['s', '0']]" order="MENUID">
+    <props>
+        <prop field="MENUPATH"/>
+    </props>
+</dic>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_FILE" alias="上传文件信息" order=" CTD desc ">
+    <item id="FILEID" alias="编号" type="long" display="0" pkey="true"/>
+    <item id="FILENAME" alias="文件名称" length="100" allowBlank="0" width="200"/>
+    <item id="STOREPATH" alias="存储路径"  length="100" allowBlank="0" width="100"  display="2" />
+    <item id="FILETYPE" alias="文件类型"  length="32" width="80"/>
+    <item id="FILESIZE" alias="文件大小" type="long"   width="50"  minValue="0" maxValue="100"  display="0"/>
+    <item id="CTU" alias="上传用户" createSysVal="s_uid_now"  width="50"  display="0"/>
+    <item id="OPIP" alias="上传IP" createSysVal="s_uip"  display="0"/>
+    <item id="CTD" alias="记录时间" type="date" width="150" createSysVal="d_now" rendererFormat="Y-m-d H:i:s" display="0"/>
+</entry>

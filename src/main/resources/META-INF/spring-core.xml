@@ -1,0 +1,97 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd ">
+
+    <context:component-scan base-package="com.ez">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <bean id="ezContextHolder" class="com.ez.core.server.EzContextHolder"/>
+
+    <!--schema begin-->
+    <bean id="schemaLoader" class="com.ez.core.service.resource.schema.SchemaLoader"/>
+    <bean id="schemaService" class="com.ez.core.service.resource.schema.SchemaService">
+        <property name="loader" ref="schemaLoader"/>
+    </bean>
+    <bean id="schemaGeneral" class="com.ez.core.service.resource.schema.SchemaGeneralService">
+    </bean>
+    <!--schema end-->
+
+    <!--dic begin-->
+    <bean id="dicLoader" class="com.ez.core.service.resource.dictionary.DicLoader"/>
+    <bean id="dicService" class="com.ez.core.service.resource.dictionary.DicService">
+        <property name="loader" ref="dicLoader"/>
+    </bean>
+    <!--dic end-->
+
+    <!--boot begin-->
+    <bean id="bootLoader" class="com.ez.core.service.resource.boot.BootLoader"/>
+    <bean id="bootService" class="com.ez.core.service.resource.boot.BootService">
+        <property name="loader" ref="bootLoader"/>
+    </bean>
+    <bean id="roleGeneral" class="com.ez.core.service.resource.boot.BootGeneralService">
+    </bean>
+
+    <!--boot end-->
+
+    <bean id="baseDao" class="com.ez.core.dao.BaseDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="baseDeptService" class="com.ez.core.service.BaseDeptService"/>
+    <bean id="baseEmpService" class="com.ez.core.service.BaseEmpService"/>
+    <bean id="baseRolePermissionService" class="com.ez.core.service.BaseRolePermissionService">
+        <property name="baseAppService" ref="baseAppService"/>
+        <property name="baseAppCatalogService" ref="baseAppCatalogService"/>
+        <property name="baseAppCatalogMenuService" ref="baseAppCatalogMenuService"/>
+        <property name="baseAppCatalogMenuActionService" ref="baseAppCatalogMenuActionService"/>
+    </bean>
+    <bean id="baseRoleService" class="com.ez.core.service.BaseRoleService"/>
+    <bean id="baseUserRoleService" class="com.ez.core.service.BaseUserRoleService"/>
+    <bean id="baseUserService" class="com.ez.core.service.BaseUserService"/>
+
+    <bean id="baseAppService" class="com.ez.core.service.BaseAppService"/>
+    <bean id="baseAppCatalogService" class="com.ez.core.service.BaseAppCatalogService"/>
+    <bean id="baseAppCatalogMenuService" class="com.ez.core.service.BaseAppCatalogMenuService">
+        <property name="baseMenuPropService" ref="baseMenuPropService"/>
+    </bean>
+    <bean id="baseAppCatalogMenuActionService" class="com.ez.core.service.BaseAppCatalogMenuActionService"/>
+    <bean id="baseMenuPropService" class="com.ez.core.service.BaseMenuPropService"/>
+
+    <bean id="base.simpleService" class="com.ez.core.service.app.BaseDataService"/>
+    <bean id="base.dicService" class="com.ez.core.service.dic.DictionaryService"/>
+
+    <bean id="logonService" class="com.ez.core.service.LogonService">
+        <property name="baseDeptService" ref="baseDeptService"/>
+        <property name="baseEmpService" ref="baseEmpService"/>
+        <property name="baseRolePermissionService" ref="baseRolePermissionService"/>
+        <property name="baseRoleService" ref="baseRoleService"/>
+        <property name="baseUserRoleService" ref="baseUserRoleService"/>
+        <property name="baseUserService" ref="baseUserService"/>
+    </bean>
+
+    <!--custom dic begin-->
+    <bean id="pinyinService" class="com.ez.core.server.common.PinyinServer"/>
+    <!--custom dic end-->
+
+    <!--custom dic begin-->
+    <bean id="menuDicServer" class="com.ez.core.server.dic.MenuDicServer"/>
+    <!--custom dic end-->
+
+    <!--role permission begin-->
+    <bean id="base.roleService" class="com.ez.core.server.role.RoleServer"/>
+    <!--role permission end-->
+
+    <!--file upload begin-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <bean id="fileAppServer" class="com.ez.core.server.upload.FileAppServer"/>
+
+    <bean id="dataExportServer" class="com.ez.core.server.upload.DataExportServer"/>
+
+    <!--file upload end-->
+</beans>

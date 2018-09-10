@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="责任单位字典" type="xml">
+    <item id="01" text="甲醇中心"></item>
+    <item id="02" text="烯烃中心"></item>
+    <item id="03" text="热力中心"></item>
+    <item id="04" text="水务中心"></item>
+    <item id="05" text="仪表保运中心"></item>
+    <item id="06" text="电气保运中心"></item>
+    <item id="07" text="设备保运中心"></item>
+    <item id="08" text="项目控制与施工管理部"></item>
+    <item id="09" text="采供中心"></item>
+    <item id="10" text="销售中心"></item>
+    <item id="11" text="生活保障中心"></item>
+    <item id="12" text="安全环保监察部"></item>
+    <item id="13" text="治安保卫中心"></item>
+    <item id="14" text="分析检测中心"></item>
+    <item id="15" text="生产技术部"></item>
+    <item id="16" text="机电仪技术部"></item>
+</dic>

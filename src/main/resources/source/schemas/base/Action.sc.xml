@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_ACTION" alias="菜单APP" order=" INTURN ">
+
+    <item id="ACTIONID" alias="编号" type="long" display="0" pkey="true" allowBlank="0" width="50"/>
+    <item id="MENUID" alias="分类" type="long"  allowBlank="0" width="100" dicId="base.MenuDic" search="1">
+    </item>
+    <item id="ACTIONCMD" alias="命令"  allowBlank="0" length="32" width="100"/>
+    <item id="ACTIONNAME" alias="名称" length="10" width="100" search="1"/>
+    <item id="PY" alias="拼音"  length="32" width="100"  createSysVal="s_py_ACTIONNAME" display="1"/>
+    <item id="DR" alias="删除"  length="100" width="50"  defaultValue="%_s_0" display="1" dicId="common.YorN"/>
+    <item id="INTURN" alias="顺序" type="int"   width="50"  minValue="0" maxValue="100000"/>>
+</entry>

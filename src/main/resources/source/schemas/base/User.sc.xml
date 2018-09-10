@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_USER" alias="菜单APP" order=" CTD desc ">
+    <item id="EMPID" alias="员工" type="long"  allowBlank="0" width="100" dicId="base.EmployeeDic"/>
+    <item id="LOGONID" alias="登录账号" allowBlank="0" pkey="true" width="100"/>
+    <item id="PASSWORD" alias="密码"  length="10" allowBlank="0"  width="100"  display="2" vtype="pwd6"/>
+    <item id="CTD" alias="记录时间" type="date" display="1" width="150" createSysVal="d_now" rendererFormat="Y-m-d H:i:s"/>
+</entry>

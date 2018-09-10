@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        ">
+
+
+    <bean id="expr_set_base" class="com.ez.core.exp.ExpressionSet">
+        <property name="name" value="base"/>
+        <property name="expressions">
+            <list>
+                <bean class="com.ez.core.exp.stand.AND"/>
+                <bean class="com.ez.core.exp.stand.CONCAT"/>
+                <bean class="com.ez.core.exp.stand.CONTAINS"/>
+                <bean class="com.ez.core.exp.stand.DATE"/>
+                <bean class="com.ez.core.exp.stand.DEC"/>
+                <bean class="com.ez.core.exp.stand.DIV"/>
+                <bean class="com.ez.core.exp.stand.EQ"/>
+                <bean class="com.ez.core.exp.stand.GE"/>
+                <bean class="com.ez.core.exp.stand.GT"/>
+                <bean class="com.ez.core.exp.stand.IF"/>
+                <bean class="com.ez.core.exp.stand.IN"/>
+                <bean class="com.ez.core.exp.stand.INT"/>
+                <bean class="com.ez.core.exp.stand.ISNULL"/>
+                <bean class="com.ez.core.exp.stand.LE"/>
+                <bean class="com.ez.core.exp.stand.LEN"/>
+                <bean class="com.ez.core.exp.stand.LIKE"/>
+                <bean class="com.ez.core.exp.stand.LONG"/>
+                <bean class="com.ez.core.exp.stand.LT"/>
+                <bean class="com.ez.core.exp.stand.MUL"/>
+                <bean class="com.ez.core.exp.stand.NE"/>
+                <bean class="com.ez.core.exp.stand.NOTIN"/>
+                <bean class="com.ez.core.exp.stand.NOTNULL"/>
+                <bean class="com.ez.core.exp.stand.NUM"/>
+                <bean class="com.ez.core.exp.stand.OR"/>
+                <bean class="com.ez.core.exp.stand.PY"/>
+                <bean class="com.ez.core.exp.stand.REF"/>
+                <bean class="com.ez.core.exp.stand.STR"/>
+                <bean class="com.ez.core.exp.stand.SUBSTR"/>
+                <bean class="com.ez.core.exp.stand.SUM"/>
+                <bean class="com.ez.core.exp.stand.TOCHAR"/>
+                <bean class="com.ez.core.exp.stand.TODATE"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="exprProcessor" class="com.ez.core.exp.ExpressionProcessor">
+        <property name="expressionSets">
+            <list>
+                <ref bean="expr_set_base"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="exprProcessor2" class="com.ez.core.exp.ExpressionProcessor">
+
+        <property name="expressionSets">
+            <list>
+                <ref bean="expr_set_base"/>
+            </list>
+        </property>
+    </bean>
+</beans>

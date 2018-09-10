@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="性别字典" type="xml">
+    <item id="1" text="男"></item>
+    <item id="2" text="女"></item>
+    <item id="9" text="未知"></item>
+</dic>

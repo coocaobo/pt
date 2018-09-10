@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_ROLEPERMISSION" alias="账本" order=" ROLEID DESC ">
+    <item id="RPID" alias="编码" type="long" display="0" pkey="true" width="50"/>
+    <item id="ROLEID" alias="角色" type="long" display="2" pkey="true" width="50"/>
+    <item id="APPTYPE" alias="应用类型"  display="2" width="100">
+    <item id="APPID" alias="应用" type="long" display="2" pkey="true" width="50"/>
+    </item>
+</entry>

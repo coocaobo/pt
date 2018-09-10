@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_USERROLE" alias="菜单APP" order=" URID desc ">
+    <item id="URID" type="long" alias="编号" display="0" allowBlank="0" pkey="true"/>
+    <item id="ROLEID" type="long" alias="角色" allowBlank="0" width="100" dicId="base.RoleDic"/>
+    <item id="LOGONID" alias="登录账号"  length="30" allowBlank="0"  width="100"  display="0" />
+</entry>

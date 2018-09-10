@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="隐患等级字典" type="xml">
+    <item id="01" text="一级"></item>
+    <item id="02" text="二级"></item>
+    <item id="03" text="三级"></item>
+</dic>

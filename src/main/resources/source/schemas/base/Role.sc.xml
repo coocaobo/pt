@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_ROLE" alias="账本" order=" ROLEID DESC ">
+    <item id="ROLEID" alias="编码" type="long" display="0" pkey="true" width="50"/>
+    <item id="ROLENAME" alias="名称"  allowBlank="0" width="100">
+    </item>
+    <item id="DR" alias="删除"  length="100" width="50"  defaultValue="%_s_0" display="1" dicId="common.YorN"/>
+</entry>

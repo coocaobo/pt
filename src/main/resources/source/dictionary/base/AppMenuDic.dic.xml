@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="一级菜单字典" type="table" idField="APPID" textField="APPNAME" parentIdField="" entity="BASE_APP"
+     cnd="['eq', ['$', 'DR'], ['s', '0']]" order="INTURN">
+    <props>
+        <prop field="PY"/>
+    </props>
+</dic>

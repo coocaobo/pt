@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="BASE_FILE" table="BASE_FILE">
+		<id name="FILEID" type="java.lang.Long">
+	    	<column name="FILEID"/>
+			<generator class="increment" />
+		</id>
+		<property name="FILENAME" type="java.lang.String" length="100" />
+		<property name="STOREPATH" type="java.lang.String" length="100" />
+		<property name="FILETYPE" type="java.lang.String" length="32" />
+		<property name="FILESIZE" type="java.lang.Long" />
+		<property name="CTD" type="java.util.Date" />
+		<property name="CTU" type="java.lang.String" length="50" />
+		<property name="OPIP" type="java.lang.String" length="32" />
+	</class>
+</hibernate-mapping>

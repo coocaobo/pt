@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organ>
+    <orgName>XXXX公司</orgName>
+    <app>
+        <appName>XX管理平台</appName>
+        <mainPanel>
+            <hide>
+                <north>false</north>
+                <south>false</south>
+            </hide>
+            <south>
+                <showTime>true</showTime>
+            </south>
+        </mainPanel>
+    </app>
+    <devOrg>
+        <name>@XX软件</name>
+    </devOrg>
+</organ>

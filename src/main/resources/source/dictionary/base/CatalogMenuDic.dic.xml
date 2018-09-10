@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dic alias="二级菜单字典" type="table" idField="CATID" textField="CATNAME" parentIdField="" entity="BASE_CATALOG"
+     cnd="['eq', ['$', 'DR'], ['s', '0']]" order="INTURN">
+    <props>
+        <prop field="APPID"/>
+        <prop field="CATICON"/>
+    </props>
+</dic>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_EMPLOYEE" alias="员工" order="EMPID desc">
+    <item id="EMPID" alias="编号" type="int" cover="i2l" pkey="true" notnull="true"/>
+    <item id="EMPNAME" alias="姓名" length="4" notnull="true"/>
+    <item id="EMPBIRTHDAY" alias="出生日期" type="date" renderer="dateFormat" cover="s2dt" xtype="datefield" notnull="true" width="150" autoData="userId"/>
+    <item id="EMPPHONE" alias="电话号码"  length="11"  notnull="true" width="150" vtype="phone"/>
+    <item id="EMPSEX" alias="性别"  length="8" notnull="true"/>
+    <item id="EMPADDRESS" alias="居住地址"  length="8" width="200"/>
+    <item id="EMPEMAIL" alias="邮箱"  length="50" vtype="email" width="100">
+    </item>
+    <item id="DR" alias="删除状态"  length="100" notShowF="true" />
+    <item id="EMPREMARK" alias="备注"  length="100" width="200"/>
+</entry>

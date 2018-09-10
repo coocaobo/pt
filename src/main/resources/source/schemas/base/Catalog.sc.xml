@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="BASE_CATALOG" alias="菜单APP" order=" INTURN ">
+    <item id="CATID" alias="编号" type="long" pkey="true" display="0" width="50"/>
+    <item id="APPID" alias="应用" type="long" allowBlank="0" width="100" dicId="base.AppMenuDic" dicFilterProp="pro_PY"/>
+    <item id="CATNAME" alias="名称"  allowBlank="0" length="4" width="200"/>
+    <item id="PY" alias="拼音"  length="32" width="100"  createSysVal="s_py_CATNAME" display="1"/>
+    <item id="CATICON" alias="图标" length="32" width="100"/>
+    <item id="DR" alias="删除"  length="100" width="50"  defaultValue="%_s_0" display="1" dicId="common.YorN"/>
+    <item id="INTURN" alias="顺序" type="int"   width="50"  minValue="0" maxValue="100000"/>
+</entry>
