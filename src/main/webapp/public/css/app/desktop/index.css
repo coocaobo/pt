@@ -1,0 +1,305 @@
+
+body {
+    overflow: hidden !important;
+    margin: 0px;
+}
+
+.index-bg-music {
+    height: 0px;
+    display: none;
+}
+
+.index-bg {
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.logon-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #326696;
+}
+
+.logon-title-error {
+    text-decoration: underline;
+}
+
+.logon-button {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ez-main-text-tip {
+    font-weight: bold;
+    /*font-size: 18px;*/
+    color: #326696;
+}
+
+.desktop-top {
+    color: #FFF;
+    background: #326696;
+    height: 100px;
+    font-size: 15px;
+    font-weight: bold
+
+}
+
+.bbb {
+    color: #66CC00;
+    color: #326696;
+    color: #dae3ed;
+    color: #9933FF;
+}
+
+.desktop-top-company {
+    padding: 12px 0 0 50px;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.desktop-top-company-logo-container {
+    float: left;
+    padding-right: 10px;
+}
+
+.desktop-top-company-logo {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+}
+
+.desktop-top-company-app-name {
+    padding: 15px 0 0 80px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.desktop-top-app {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.desktop-left {
+    float: left;
+}
+
+.desktop-right {
+    float: right;
+}
+
+.desktop-app-triangle {
+    background: #66CC00;
+    border-bottom: 30px solid #326696;
+    border-right: 20px solid #66CC00;
+    height: 0px;
+}
+
+.desktop-app-triangle-back {
+    background: #66CC00;
+    border-top: 30px solid #326696;
+    border-left: 20px solid #66CC00;
+    height: 0px;
+}
+
+.desktop-top-quick {
+    background: #66CC00;
+    padding: 6px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.desktop-top-quick-option {
+    border: 2px solid #66CC00;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.desktop-top-quick-option:hover {
+    color: #326696;
+}
+
+.desktop-top-menu-container {
+    position: absolute;
+    top: 33px;
+    right: 20px;
+    background: #66CC00;
+    padding: 5px;
+}
+
+.desktop-top-menu-item {
+    float: left;
+    width: 100px;
+    height: 30px;
+    padding: 8px 2px;
+    margin: 0px 3px;
+    background: #326696;
+    text-align: center;
+    font-size: 17px;
+}
+
+.desktop-top-menu-item:hover {
+    border-top: 5px solid #ffffff;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.desktop-top-menu-item-select {
+    border-top: 5px solid #ffffff;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.ez-menu-wrapper {
+    /*width: 180px;*/
+    margin: 0px auto;
+    font-weight: bold;
+}
+
+.ez-menu div {
+    position: relative;
+}
+
+.ez-menu {
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.ez-menu-leve1 {
+    height: auto;
+    border-bottom: dashed 1px #FFFFFF;
+}
+
+.ez-menu-leve1-text {
+    height: 30px;
+    background: #326696;
+    padding-left: 33px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.ez-menu-leve1-text-Symbol {
+    padding-left: 77px
+}
+
+.ez-menu-leve2-text-Symbol {
+    padding-left: 63px
+}
+
+.ez-menu-leve1-text-Symbol:before {
+    content: '+';
+    background-repeat: no-repeat;
+}
+
+.ez-menu-catlog-selected .ez-menu-leve1-text-Symbol:before {
+    content: '>';
+    background-repeat: no-repeat;
+}
+
+.ez-menu-menu-selected .ez-menu-leve2-text-Symbol:before {
+    content: '>';
+    background-repeat: no-repeat;
+}
+
+.ez-menu-leve1-text:hover {
+    /*border-top: thick double #9933FF;*/
+    border-left: 5px solid #ffffff;
+    padding-left: 28px;
+}
+
+.ez-menu .ez-menu-leve1-content {
+    height: auto;
+    display: none;
+}
+
+.ez-menu-catlog-selected .ez-menu-leve1-content {
+    display: block;
+}
+
+.ez-menu-leve2 {
+    height: auto;
+    border-bottom: dashed 1px #FFFFFF;
+}
+
+.ez-menu-leve2-text {
+    height: 30px;
+    background: #66CC00;
+    padding-left: 50px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.ez-menu-leve2-text:hover {
+    border-left: 5px solid #ffffff;
+    padding-left: 45px;
+}
+
+.ez-menu-catlog-selected .ez-menu-leve1-text {
+    border-left: 5px solid #ffffff;
+    padding-left: 28px;
+}
+
+.ez-menu-menu-selected .ez-menu-leve2-text {
+    border-left: 5px solid #ffffff;
+    padding-left: 45px;
+}
+
+.ez-menu-icon:before {
+    content: '';
+    font-size: 36px;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    line-height: 30px;
+    background-repeat: no-repeat;
+}
+
+.ez-menu-title {
+    color: #326696;
+    text-align: center;
+}
+
+.ez-field-label-notnull {
+    color: #cf4c35;
+}
+
+.ez-field-label-notnull:before {
+    content: '';
+}
+
+.ez-menu-tree-app-lev1 {
+    background-image: url(images/icon/menu-lev1.png) !important;
+}
+
+.ez-menu-tree-app-lev2 {
+    background-image: url(images/icon/menu-lev2.png) !important;
+}
+
+.ez-menu-tree-app-lev3 {
+    background-image: url(images/icon/menu-lev3.png) !important;
+}
+
+.ez-file-download {
+    background-image: url(images/icon/download.png) !important;
+}
+
+.ez-file-view {
+    background-image: url(images/icon/view.png) !important;
+}
+
+.ez-color-red {
+    color: red;
+}
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+
+
