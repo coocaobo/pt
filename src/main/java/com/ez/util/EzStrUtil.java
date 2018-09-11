@@ -1,5 +1,6 @@
 package com.ez.util;
 
+import com.mysql.jdbc.Driver;
 import org.apache.commons.lang.StringUtils;
 
 /**
