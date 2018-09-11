@@ -49,16 +49,17 @@ Ext.define('pt.comp.desktop.LogOnForm', {
         this.bgPanel.add(logOnForm);
     },
     onBoxRender: function(bgPanel) {
-        $import('lib.cloud.Detector');
-        $import('lib.cloud.three_min');
-        $import('lib.cloud.Draw');
-        Ext.create('lib.cloud.Draw',{
-            module: this,
-            panel: bgPanel,
-            autoDraw: true,
-            callback: this.addLogonForm,
-            scope: this,
-        })
+        // $import('lib.cloud.Detector');
+        // $import('lib.cloud.three_min');
+        // $import('lib.cloud.Draw');
+        // Ext.create('lib.cloud.Draw',{
+        //     module: this,
+        //     panel: bgPanel,
+        //     autoDraw: true,
+        //     callback: this.addLogonForm,
+        //     scope: this,
+        // })
+        this.addLogonForm();
         return;
 
     },
