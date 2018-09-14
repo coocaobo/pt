@@ -49,7 +49,7 @@ body {
 }
 
 .bbb {
-    color: #66CC00;
+    color: #0f84bc;
     color: #326696;
     color: #dae3ed;
     color: #9933FF;
@@ -93,41 +93,41 @@ body {
 }
 
 .desktop-app-triangle {
-    background: #66CC00;
+    background: #0f84bc;
     border-bottom: 30px solid #326696;
-    border-right: 20px solid #66CC00;
+    border-right: 20px solid #0f84bc;
     height: 0px;
 }
 
 .desktop-app-triangle-back {
-    background: #66CC00;
+    background: #0f84bc;
     border-top: 30px solid #326696;
-    border-left: 20px solid #66CC00;
+    border-left: 20px solid #0f84bc;
     height: 0px;
 }
 
 .desktop-top-quick {
-    background: #66CC00;
+    background: #0f84bc;
     padding: 6px;
     cursor: pointer;
     height: 30px;
 }
 
 .desktop-top-quick-option {
-    border: 2px solid #66CC00;
+    border: 2px solid #0f84bc;
     border-radius: 5px;
     padding: 3px;
 }
 
 .desktop-top-quick-option:hover {
-    color: #326696;
+    color: #CCCCCC;
 }
 
 .desktop-top-menu-container {
     position: absolute;
     top: 33px;
     right: 20px;
-    background: #66CC00;
+    background: #0f84bc;
     padding: 5px;
 }
 
@@ -227,7 +227,7 @@ body {
 
 .ez-menu-leve2-text {
     height: 30px;
-    background: #66CC00;
+    background: #0f84bc;
     padding-left: 50px;
     line-height: 30px;
     cursor: pointer;
