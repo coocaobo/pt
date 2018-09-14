@@ -38,17 +38,19 @@ Ext.define('pt.util.DicFieldUtil', {
 
             var labelCls = '';
             var allowBlank = true;
+            var fieldLabel = scItem['@alias'];
 
             if(scItem['@allowBlank'] == '0') {
                 allowBlank = false;
                 labelCls = 'ez-field-label-notnull';
+                fieldLabel = '<span class="ez-field-label-notnull">'+fieldLabel+'</span>'
             }
 
             var comboxConfig = {
                 name: scItem['@id'],
-                fieldLabel: scItem['@alias'],
+                fieldLabel: fieldLabel,
                 allowBlank: allowBlank,
-                labelCls: labelCls,
+                // labelCls: labelCls,
                 store: myStore,
                 displayField: 'text',
                 valueField: 'id',

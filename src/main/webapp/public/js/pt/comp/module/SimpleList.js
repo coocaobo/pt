@@ -16,6 +16,7 @@ Ext.define('pt.comp.module.SimpleList', {
             removeActionId: 'removeSingleRecord',
             createFormClass: 'pt.comp.module.SimpleForm',
             updateFormClass: 'pt.comp.module.SimpleForm',
+            viewFormClass: 'pt.comp.module.SimpleForm',
             middleModule: {},
         });
 
@@ -48,11 +49,18 @@ Ext.define('pt.comp.module.SimpleList', {
         var schemaConifg = this.generalFromSchema(this.schema);
         var gridConfig = this.createGridConfig(defaultConfig, schemaConifg);
         var grid = Ext.create(this.gridClass, gridConfig);
+        this.initGridEvent(grid);
         this.panel = grid;
         this.grid = grid;
         return grid;
     },
-    changeSchema: function() {
+    initGridEvent: function (grid) {
+        grid.on('rowdblclick', this.onRowdblclick, this);
+    },
+    onRowdblclick: function (grid, record, element, rowIndex, e, eOpts) {
+        this.doView(record);
+    },
+    changeSchema: function () {
     },
 
     /**
@@ -164,7 +172,7 @@ Ext.define('pt.comp.module.SimpleList', {
 
             if (groupText) {
                 var group = groupTextCache[groupText];
-                if(!group) {
+                if (!group) {
                     group = groupTextCache[groupText] = {
                         text: groupText,
                         columns: []
@@ -203,7 +211,8 @@ Ext.define('pt.comp.module.SimpleList', {
         this.changeSchemaCoverObj(ret);
         return ret;
     },
-    changeSchemaCoverObj:function(){},
+    changeSchemaCoverObj: function () {
+    },
     /**
      * @param fields
      * @returns {Ext.data.Store}
@@ -558,7 +567,7 @@ Ext.define('pt.comp.module.SimpleList', {
         formModule.on('savesuccess', this.onSaveDataSuccess, this);
         return formModule;
     },
-    freshList: function() {
+    freshList: function () {
         this.grid.store.reload();
     },
     onSaveDataSuccess: function () {
@@ -626,7 +635,7 @@ Ext.define('pt.comp.module.SimpleList', {
             this.doCndQuery();
         }
     },
-    doUpload: function(){
+    doUpload: function () {
         $import('pt.comp.module.SimpleFile');
         var params = this.getUploadParams();
         var uploadModule = this.uploadModule = Ext.create('pt.comp.module.SimpleFile', {autoLoad: false});
@@ -638,17 +647,48 @@ Ext.define('pt.comp.module.SimpleList', {
         uploadModule.getWindow({}, false, params);
         uploadModule.loadFileData();
     },
-    onFileUploadSuccess: function() {
+    onFileUploadSuccess: function () {
     },
     /**
      * 必须有type和pkey返回
      * @returns {{uploadType: string, uploadPkey: string}}
      */
-    getUploadParams: function() {
-        var params =  {
+    getUploadParams: function () {
+        var params = {
             APPTYPE: this.uploadType,
             APPPKEY: this.uploadPkey,
         };
         return params;
+    },
+    /**
+     * 显示查看页面
+     */
+    doView: function(record) {
+        if(!record) {
+            return;
+        }
+
+        var viewRecordId = record.data[this.pkeyField];
+
+
+        if (!this.middleModule['viewform']) {
+            var viewClass = this.viewFormClass;
+            if (!viewClass) {
+                return;
+            }
+            var config = {
+                op: 'read',
+                schemaId: this.schemaId,
+            };
+
+            this.middleModule['viewform'] = this.createFormModule(viewClass, config);
+        }
+
+        var recordData = {};
+        recordData[this.pkeyField] = viewRecordId;
+
+        this.middleModule['viewform'].getWindow({
+            title: '查看信息'
+        }, false, {initData: {recordData: this.getUpdateInitRecordData(recordData), pkeyField: this.pkeyField}});
     }
 });

@@ -8,10 +8,15 @@ Ext.define('pt.comp.module.SimpleForm', {
     init: function () {
         this.formClass = 'Ext.form.Panel';
         this.formData = null;
+        this.fieldWidth = this.fieldWidth || 300;
+        this.labelWidth = this.labelWidth || 100;
         this.serviceId = 'base.simpleService';
         this.createActionId = 'createSingle';
         this.loadActionId = 'loadSingle';
         this.updateActionid = 'updateSingle';
+        this.rows = this.rows * 1 || 2; // 默认为两列
+        this.showGroup = (this.showGroup === true);
+        this.allReadOnly = (this.op === 'read');
     },
     initPanel: function () {
         if (this.formPanel) {
@@ -25,9 +30,15 @@ Ext.define('pt.comp.module.SimpleForm', {
             this.schema = schema;
         }
 
-        var defaultConfig = this.getDefaultFormConfig();
-        var schemaConifg = this.generalFromSchema(this.schema);
-        var formConfig = this.createFormConfig(defaultConfig, schemaConifg);
+        var defaultConfig = this.op === 'read' ? this.getDefaultViewFormConfig() : this.getDefaultFormConfig();
+        var schemaConfig = this.generalFromSchema(this.schema);
+        if (!this.showGroup) {
+            schemaConfig.items = this.layoutGroupFormItems(schemaConfig.items);
+        } else {
+            schemaConfig.items = this.layoutFormItems(schemaConfig.items);
+        }
+
+        var formConfig = this.createFormConfig(defaultConfig, schemaConfig);
         var formPanel = this.formPanel = Ext.create(this.formClass, formConfig);
         return formPanel;
     },
@@ -112,14 +123,12 @@ Ext.define('pt.comp.module.SimpleForm', {
     },
     getDefaultFormConfig: function () {
         return {
-            width: 350,
-            height: 600,
             defaultType: 'textfield',
             bodyPadding: 10,
             scrollable: true,
-            defaults: {
-                labelWidth: 100,
+            fieldDefaults: {
                 labelAlign: 'right',
+                labelWidth: this.labelWidth,
             },
             buttons: [{
                 text: '保存',
@@ -131,6 +140,24 @@ Ext.define('pt.comp.module.SimpleForm', {
                 scope: this
             }, {
                 text: '取消',
+                handler: this.doCancle,
+                scope: this
+            }]
+
+        }
+    },
+
+    getDefaultViewFormConfig: function () {
+        return {
+            defaultType: 'textfield',
+            bodyPadding: 10,
+            scrollable: true,
+            fieldDefaults: {
+                labelAlign: 'right',
+                labelWidth: this.labelWidth,
+            },
+            buttons: [ {
+                text: '关闭',
                 handler: this.doCancle,
                 scope: this
             }]
@@ -186,6 +213,11 @@ Ext.define('pt.comp.module.SimpleForm', {
             var maxValue = item['@maxValue'] * 1;
             maxValue = isNaN(maxValue) ? null : maxValue;
 
+            var colspan = item['@colspan'] * 1 || 1;
+            var rowspan = item['@rowspan'] * 1 || 1;
+
+            var formGroup = item['@formGroup'];
+
             if (!this.pkeyField && item['@pkey'] == 'true') {
                 this.pkeyField = id;
             }
@@ -206,13 +238,16 @@ Ext.define('pt.comp.module.SimpleForm', {
             var parseMinValue = minValue;
             var parseMaxValue = maxValue;
             var parseDecimalPrecision = 0;
+            var readOnly = this.allReadOnly;
 
 
             var itemConfig;
             if (dicId) {
-                itemConfig = pt.util.DicFieldUtil.createField(item);
-            }
-            else {
+                itemConfig = pt.util.DicFieldUtil.createField(item, {readOnly: readOnly});
+                itemConfig['#colspan'] = colspan;
+                itemConfig['#rowspan'] = rowspan;
+                itemConfig['#formGroup'] = formGroup;
+            } else {
                 if (type) {
                     if (type == 'string') {
                         parseXtype = 'textfield';
@@ -237,7 +272,8 @@ Ext.define('pt.comp.module.SimpleForm', {
 
                 if (allowBlank == '0') {
                     parseAllowBlank = false;
-                    parseLabelCls = 'ez-field-label-notnull';
+                    // parseLabelCls = 'ez-field-label-notnull';
+                    parseFieldLabel = '<span class="ez-field-label-notnull">' + parseFieldLabel + '</span>'
                 }
 
                 if (vtype) {
@@ -256,7 +292,7 @@ Ext.define('pt.comp.module.SimpleForm', {
                 itemConfig = {
                     name: parseName,
                     fieldLabel: parseFieldLabel,
-                    labelCls: parseLabelCls,
+                    // labelCls: parseLabelCls,
                     xtype: parseXtype,
                     vtype: parseVtype,
                     allowBlank: parseAllowBlank,
@@ -265,7 +301,10 @@ Ext.define('pt.comp.module.SimpleForm', {
                     minValue: parseMinValue,
                     maxValue: parseMaxValue,
                     decimalPrecision: parseDecimalPrecision,
-
+                    readOnly: readOnly,
+                    '#colspan': colspan,
+                    '#rowspan': rowspan,
+                    '#formGroup': formGroup,
                 }
             }
 
@@ -292,7 +331,7 @@ Ext.define('pt.comp.module.SimpleForm', {
         if (this.op == 'create') {
         }
 
-        if (this.op == 'update') {
+        if (this.op == 'update' || this.op == 'read') {
             this.loadDataFromServer();
         }
     }
@@ -305,5 +344,102 @@ Ext.define('pt.comp.module.SimpleForm', {
         if (this.op == 'update') {
             this.resetFormData();
         }
-    }
+    },
+
+    generalRowConfig: function () {
+        return {
+            xtype: 'container',
+            layout: 'hbox',
+            defaultType: 'textfield',
+            margin: '0 0 5 0',
+            items: []
+        }
+    },
+
+    layoutFormItems: function (items) {
+        var newItems = [];
+        var itemColNumNow = 0;
+
+        for (var i = 0; i < items.length; i++) {
+            var oneItem = items[i];
+            var colspan = oneItem['#colspan'];
+            var rolspan = oneItem['#rowspan'];
+
+            if (colspan > this.rows) {
+                colspan = this.rows;
+            }
+            // 另外起一行；
+            if (i === 0 || colspan + itemColNumNow > this.rows) {
+                itemColNumNow = 0;
+                var rowCfg = this.generalRowConfig();
+                newItems.push(rowCfg);
+            }
+
+            itemColNumNow = itemColNumNow + colspan;
+
+            oneItem.width = (this.fieldWidth ) * colspan;
+            newItems[newItems.length - 1].items.push(oneItem)
+        }
+        return newItems;
+    },
+
+    __generalGroup: function (id, text) {
+        var ret = {
+            id: '$0',
+            text: '基本信息',
+            items: [],
+        };
+        if (id && text) {
+            ret.id = '$' + id;
+            ret.text = text;
+        }
+        return ret;
+    },
+    layoutGroupFormItems: function (items) {
+        // 需要按照顺序先分组；
+        var orderGroud = {};
+
+        for (var i = 0; i < items.length; i++) {
+            var oneItem = items[i];
+            var formGroup = oneItem['#formGroup'];
+
+
+            var groupId = '0';
+            var $groupId = '$' + groupId;
+            var groupText = '基本信息';
+            if (formGroup) {
+                var groupInfo = formGroup.split('_');
+                groupId = groupInfo[0];
+                $groupId = '$' + groupId;
+                groupText = groupInfo[1];
+            }
+
+            var oneGroup = orderGroud[$groupId];
+
+            if (!oneGroup) {
+                oneGroup = this.__generalGroup(groupId, groupText);
+                orderGroud[$groupId] = oneGroup;
+            }
+
+            oneGroup.items.push(oneItem);
+        }
+
+        var retItems = [];
+        for (var id in orderGroud) {
+            var fieldSet = {
+                xtype: 'fieldset',
+                title: orderGroud[id]['text'],
+                layout: 'anchor',
+                defaults: {
+                    anchor: '100%'
+                },
+                items: []
+            }
+
+            var fielsSetItems = this.layoutFormItems(orderGroud[id].items);
+            fieldSet.items = fielsSetItems;
+            retItems.push(fieldSet);
+        }
+        return retItems;
+    },
 });
