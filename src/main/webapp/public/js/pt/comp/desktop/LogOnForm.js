@@ -24,6 +24,9 @@ Ext.define('pt.comp.desktop.LogOnForm', {
             width: '100%',
             bodyStyle: {
                 'background-color': '#326696',
+                'background-image': 'url(public/css/app/desktop/images/login-bg.jpg)',
+                'background-position': 'center',
+                'background-repeat': 'no-repeat',
             },
             border: false,
             frame: false,
