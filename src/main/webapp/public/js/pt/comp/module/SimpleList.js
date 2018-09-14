@@ -150,7 +150,7 @@ Ext.define('pt.comp.module.SimpleList', {
                 width = width * 1;
                 parseWidth = isNaN(width) ? null : width;
             }
-            if (renderer && this[renderer] && typeof(this[renderer]) == 'funciton') {
+            if (renderer && this[renderer] && typeof(this[renderer]) == 'function') {
                 parseRenderer = this[renderer];
             }
             if (flex) {
@@ -592,8 +592,12 @@ Ext.define('pt.comp.module.SimpleList', {
             columns: [
                 {xtype: 'rownumberer', text: '序号', width: 50, align: 'center', locked: true},
             ],
-
+            viewConfig: {
+                getRowClass: this.getRowClass,
+            },
         }
+    },
+    getRowClass: function (record, rowIndex, p, ds) {
     },
     resetParam: function (params) {
         Ext.apply(this.grid.store.proxy.config.extraParams, params);
@@ -629,12 +633,14 @@ Ext.define('pt.comp.module.SimpleList', {
             cnd: cnd
         });
         this.freshList();
-    },
+    }
+    ,
     onCndFieldKeyup: function (field, e) {
         if (e.keyCode === 13) {
             this.doCndQuery();
         }
-    },
+    }
+    ,
     doUpload: function () {
         $import('pt.comp.module.SimpleFile');
         var params = this.getUploadParams();
@@ -646,9 +652,11 @@ Ext.define('pt.comp.module.SimpleList', {
 
         uploadModule.getWindow({}, false, params);
         uploadModule.loadFileData();
-    },
+    }
+    ,
     onFileUploadSuccess: function () {
-    },
+    }
+    ,
     /**
      * 必须有type和pkey返回
      * @returns {{uploadType: string, uploadPkey: string}}
@@ -659,12 +667,13 @@ Ext.define('pt.comp.module.SimpleList', {
             APPPKEY: this.uploadPkey,
         };
         return params;
-    },
+    }
+    ,
     /**
      * 显示查看页面
      */
-    doView: function(record) {
-        if(!record) {
+    doView: function (record) {
+        if (!record) {
             return;
         }
 
