@@ -32,7 +32,7 @@ Ext.define('pt.comp.module.SimpleForm', {
 
         var defaultConfig = this.op === 'read' ? this.getDefaultViewFormConfig() : this.getDefaultFormConfig();
         var schemaConfig = this.generalFromSchema(this.schema);
-        if (!this.showGroup) {
+        if (this.showGroup) {
             schemaConfig.items = this.layoutGroupFormItems(schemaConfig.items);
         } else {
             schemaConfig.items = this.layoutFormItems(schemaConfig.items);
