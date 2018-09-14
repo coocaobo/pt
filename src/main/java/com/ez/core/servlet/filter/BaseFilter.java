@@ -19,10 +19,21 @@ public class BaseFilter implements Filter {
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-
-
+        dealCors(servletRequest, servletResponse);
         filterChain.doFilter(servletRequest, servletResponse);
 //        doFilterInternal(servletRequest, servletResponse,filterChain);
+    }
+
+    private void dealCors(ServletRequest servletRequest, ServletResponse servletResponse) {
+        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        HttpServletRequest request = (HttpServletRequest)servletRequest;
+        response.setContentType("textml;charset=UTF-8");
+        response.addHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");
+        response.addHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
+        response.addHeader("Access-Control-Max-Age", "1800");// 30 min
+        response.addHeader("Access-Control-Allow-Credentials", "true");
+        response.addHeader("XDomainRequestAllowed", "1");
     }
 
     private void doFilterInternal(ServletRequest request, ServletResponse response
