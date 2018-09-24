@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="CRM_BUS" alias="业务信息" order=" BUSID DESC ">
+    <item id="BUSID" alias="编号" type="long" display="0" pkey="true"/>
+
+    <item id="BUS1" alias="业务1" length="2"  width="100"  search="1"/>
+    <item id="BUS2" alias="业务2" length="2"  width="100"  search="1"/>
+    <item id="BUS3" alias="业务3" length="2"  width="100"  search="1"/>
+    <item id="BUS4" alias="业务4" length="2"  width="100"  search="1"/>
+    <item id="BUS5" alias="业务5" length="2"  width="100"  search="1"/>
+    <item id="BUS6" alias="业务6" length="2"  width="100"  search="1"/>
+    <item id="BUS7" alias="业务7" length="2"  width="100"  search="1"/>
+    <item id="BUS8" alias="业务8" length="2"  width="100"  search="1"/>
+    <item id="BUS9" alias="业务9" length="2"  width="100"  search="1"/>
+    <item id="BUS10" alias="业务10" length="2"  width="100"  search="1"/>
+    <item id="BUSDES1" alias="业务描述1" length="100"  width="100"  search="1"/>
+    <item id="BUSDES2" alias="业务描述2" length="100"  width="100"  search="1"/>
+    <item id="BUSDES3" alias="业务描述3" length="100"  width="100"  search="1"/>
+    <item id="BUSDES4" alias="业务描述4" length="100"  width="100"  search="1"/>
+    <item id="BUSDES5" alias="业务描述5" length="100"  width="100"  search="1"/>
+    <item id="BUSDES6" alias="业务描述6" length="100"  width="100"  search="1"/>
+    <item id="BUSDES7" alias="业务描述7" length="100"  width="100"  search="1"/>
+    <item id="BUSDES8" alias="业务描述8" length="100"  width="100"  search="1"/>
+    <item id="BUSDES9" alias="业务描述9" length="100"  width="100"  search="1"/>
+    <item id="BUSDES10" alias="业务描述10" length="100"  width="100"  search="1"/>
+</entry>

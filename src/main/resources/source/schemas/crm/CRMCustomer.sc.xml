@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="CRM_CUSTOMER" alias="客户信息" order=" CTD DESC ">
+    <item id="CUSID" alias="编号" type="long" display="0" pkey="true"/>
+
+    <item id="CUSNAME" alias="姓名" length="100" allowBlank="0" width="100"  search="1"/>
+    <item id="GENDER" alias="性别"  length="1" />
+    <item id="ADDRESS" alias="地址" type="stringBig"  width="200" display="3" />
+    <item id="BIRTHDAY" alias="生日" type="date"  display="3" width="100"  rendererFormat="Y-m-d"/>
+    <item id="TEL" alias="电话" length="200"  width="80" search="1"/>
+    <item id="MERRAY" alias="婚姻状况" length="200"  width="80" />
+    <item id="CHILDREN" alias="孩子情况" length="200"  width="80"  />
+    <item id="REMARK" alias="备注" type="stringBig" length="200"  width="100"/>
+
+    <item id="DR" alias="删除"  length="100" width="50"  defaultValue="%_s_0" display="1" dicId="common.YorN"  search="1"/>
+    <item id="CTD" alias="记录时间" type="date" display="1" width="150" createSysVal="d_now" rendererFormat="Y-m-d H:i:s"/>
+</entry>

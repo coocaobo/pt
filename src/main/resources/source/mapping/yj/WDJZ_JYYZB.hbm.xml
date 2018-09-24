@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="WDJZ_JYYZB" table="WDJZ_JYYZB">
+		<id name="ZWID" type="java.lang.Long">
+	    	<column name="ZWID"/>
+			<generator class="increment" />
+		</id>
+		<property name="ZWLX" type="java.lang.String" length="2" />
+		<property name="JE" type="java.math.BigDecimal" />
+		<property name="XFSJ" type="java.util.Date" />
+		<property name="EMPREMARK" type="java.lang.String" length="200"  />
+		<property name="DR" type="java.lang.String" length="2"  />
+		<property name="CTD" type="java.util.Date" />
+	</class>
+</hibernate-mapping>

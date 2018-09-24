@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry entityName="YJ_YHPC" alias="排查隐患名单" order=" INTURN ">
+    <item id="YHPCID" alias="编号" type="long" display="0" pkey="true"/>
+
+    <item id="DCDD" alias="检查地点" length="100" allowBlank="0" width="100" dicId="yj.Jcdd" search="1"/>
+    <item id="PCYHJWT" alias="排查隐患及问题" type="stringBig" length="200" allowBlank="0" width="200" colspan="2"/>
+    <item id="FILENUM" alias="图片数" type="int"   width="80" display="1" />
+    <item id="PCSJ" alias="排查时间" type="date" allowBlank="0" display="3" width="100"  rendererFormat="Y-m-d"/>
+    <item id="FXR" alias="发现人" length="200" allowBlank="0" width="80" search="1"/>
+    <item id="YHDJ" alias="隐患等级" length="200" allowBlank="0" width="80"  dicId="yj.Yhdj" search="1"/>
+    <item id="YHFL" alias="隐患分类" length="200" allowBlank="0" width="80"  dicId="yj.Yhfl" search="1"/>
+    <item id="ZRR" alias="责任单位" length="200" allowBlank="0" width="100" dicId="yj.Zrdw" search="1"/>
+    <item id="ZGCS" alias="整改措施" length="200" type="stringBig" allowBlank="0" width="200" groupText="整改治理计划"  colspan="2" formGroup="1_整改治理计划"/>
+    <item id="ZGQX" alias="整改期限" type="date" allowBlank="0" display="3" width="100"  rendererFormat="Y-m-d" groupText="整改治理计划" formGroup="1_整改治理计划"/>
+    <item id="ZGJG" alias="整改结果" length="80" allowBlank="0" renderer="zgjgRenderer" width="80"  dicId="yj.Zgjg" groupText="整改治理计划" formGroup="1_整改治理计划"/>
+    <item id="ZGQJAQFFCS" alias="整改期间安全防范措施" length="200" allowBlank="0" width="200"/>
+    <item id="FCSJ" alias="复查时间" allowBlank="0" type="date" display="3" width="100"  rendererFormat="Y-m-d" groupText="整改治理复查结果" formGroup="1_整改治理计划"/>
+    <item id="FCZGJG" alias="复查整改结果" length="200" allowBlank="0" width="80"  dicId="yj.Zgjg" groupText="整改治理复查结果" formGroup="1_整改治理计划"/>
+    <item id="JCR" alias="检查人" length="200" allowBlank="0" width="80" groupText="整改治理复查结果" formGroup="1_整改治理计划"/>
+
+
+    <item id="DR" alias="删除"  length="100" width="50"  defaultValue="%_s_0" display="1" dicId="common.YorN"  search="1"/>
+    <item id="INTURN" alias="顺序" type="int"   width="50"  minValue="0" maxValue="100000"  formGroup="9_其他"/>
+    <item id="CTD" alias="记录时间" type="date" display="1" width="150" createSysVal="d_now" rendererFormat="Y-m-d H:i:s"/>
+</entry>

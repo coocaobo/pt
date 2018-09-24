@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class entity-name="CRM_CUSTOMER" table="CRM_CUSTOMER">
+		<id name="CUSID" type="java.lang.Long">
+	    	<column name="CUSID"/>
+			<generator class="increment" />
+		</id>
+		<property name="CUSNAME" type="java.lang.String" length="50" />
+		<property name="GENDER" type="java.lang.String" length="1" />
+		<property name="BIRTHDAY" type="java.util.Date" />
+		<property name="ADDRESS" type="java.lang.String" length="100" />
+		<property name="TEL" type="java.lang.String" length="50" />
+		<property name="MERRAY" type="java.lang.String" length="1" />
+		<property name="CHILDREN" type="java.lang.String" length="2" />
+		<property name="REMARK" type="java.lang.String" length="200" />
+
+		<property name="CTD" type="java.util.Date" />
+		<property name="CTU" type="java.lang.String" length="50" />
+		<property name="DR" type="java.lang.String" length="1" />
+	</class>
+</hibernate-mapping>
