@@ -5,10 +5,7 @@
         ">
 
 
-    <import resource="spring-hibernate.xml"/>
-    <import resource="spring-core.xml"/>
-    <import resource="spring-exp.xml"/>
-    <import resource="spring-crm.xml"/>
-    <import resource="spring-yj.xml"/>
-    <!--<import resource="spring-session.xml"/>-->
+    <bean id="yhpcService" class="com.ez.app.yj.YhpcService" />
+
+
 </beans>
