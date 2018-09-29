@@ -1,0 +1,141 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    border: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url("bg.png") 0% 0% / 100% 100% no-repeat;
+}
+
+.row {
+    width: 100%;
+}
+
+.col {
+    width: 99.9%;
+    float: left;
+}
+
+.row > .col.col1 {
+    width: 8.3333333%;
+}
+
+.row > .col.col2 {
+    width: 16.66666666%;
+}
+
+.row > .col.col3 {
+    width: 25%;
+}
+
+.row > .col.col4 {
+    width: 33.3333333%;
+}
+
+.row > .col.col5 {
+    width: 41.66666667%;
+}
+
+.row > .col.col6 {
+    width: 50%;
+}
+
+.row > .col.col7 {
+    width: 58.3333333%;
+}
+
+.row > .col.col8 {
+    width: 66.66666667%;
+}
+
+.row > .col.col9 {
+    width: 75%;
+}
+
+.row > .col.col10 {
+    width: 83.3333333%;
+}
+
+.row > .col.col11 {
+    width: 91.66666667%;
+}
+
+.row > .col.col12 {
+    width: 99.99999999%;
+}
+
+.sel-adp-height {
+    height: 100%;
+}
+
+.sel-adp-height > .height1 {
+    height: 16.6666667%;
+}
+
+.sel-adp-height > .height2 {
+    height: 33.33333333%;
+}
+
+.sel-adp-height > .height3 {
+    height: 50%;
+}
+
+.sel-adp-height > .height4 {
+    height: 66.66666667%;
+}
+
+.sel-adp-height > .height5 {
+    height: 83.33333333%;
+}
+
+.sel-adp-height > .height6 {
+    height: 100%;
+}
+
+.area-bg1 {
+    background: url("./area-bg1.png") 0% 0% / 100% 100% no-repeat;;
+}
+
+.ez-chart {
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    color: aliceblue;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.map-tooltip {
+    background-color: #cccccc2b;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: aliceblue;
+    padding: 5px;
+}
+
+.map-tooltip-val {
+    opacity: 1;
+}
+
+.map-tooltip-name {
+    opacity: 1;
+
+}
