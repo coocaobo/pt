@@ -315,15 +315,18 @@ body {
 
 @-webkit-keyframes twinkling {
     0% {
+        fill: #ff9075;
         stroke: red;
         stroke-width: 0;
     }
     50% {
+        fill: #ff9075;
         /*fill: #8c4e4e;*/
         stroke: red;
         stroke-width: 2;
     }
     100% {
+        fill: #ff9075;
         stroke: red;
         stroke-width: 0;
     }
@@ -331,16 +334,59 @@ body {
 
 @keyframes twinkling {
     0% {
+        fill: #ff9075;
         stroke: red;
         stroke-width: 0;
     }
     50% {
-        /*fill: #8c4e4e;*/
+        fill: #ff9075;
         stroke: red;
         stroke-width: 2;
     }
     100% {
+        fill: #ff9075;
         stroke: red;
+        stroke-width: 0;
+    }
+}
+
+.mzxx_warn_animation1 {
+    -webkit-animation: twinkling_warn 2.5s infinite ease-in-out;
+    animation: twinkling_warn 2.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes twinkling_warn {
+    0% {
+        fill: #fff9b8;
+        stroke: #fff258;
+        stroke-width: 0;
+    }
+    50% {
+        fill: #fff9b8;
+        stroke: #fff258;
+        stroke-width: 2;
+    }
+    100% {
+        fill: #fff9b8;
+        stroke: #fff258;
+        stroke-width: 0;
+    }
+}
+
+@keyframes twinkling_warn {
+    0% {
+        fill: #fff9b8;
+        stroke: #fff258;
+        stroke-width: 0;
+    }
+    50% {
+        fill: #fff9b8;
+        stroke: #fff258;
+        stroke-width: 2;
+    }
+    100% {
+        fill: #fff9b8;
+        stroke: #fff258;
         stroke-width: 0;
     }
 }
