@@ -303,3 +303,44 @@ body {
 
 
 
+.mzxx_animation2 {
+    -webkit-animation: twinkling 2.5s infinite ease-in-out;
+    animation: twinkling 2.5s infinite ease-in-out;
+}
+
+.mzxx_animation1 {
+    -webkit-animation: twinkling 2.5s infinite ease-in-out;
+    animation: twinkling 2.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes twinkling {
+    0% {
+        stroke: red;
+        stroke-width: 0;
+    }
+    50% {
+        /*fill: #8c4e4e;*/
+        stroke: red;
+        stroke-width: 2;
+    }
+    100% {
+        stroke: red;
+        stroke-width: 0;
+    }
+}
+
+@keyframes twinkling {
+    0% {
+        stroke: red;
+        stroke-width: 0;
+    }
+    50% {
+        /*fill: #8c4e4e;*/
+        stroke: red;
+        stroke-width: 2;
+    }
+    100% {
+        stroke: red;
+        stroke-width: 0;
+    }
+}

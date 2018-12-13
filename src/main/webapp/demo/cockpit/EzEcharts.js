@@ -156,9 +156,9 @@
     };
     EZEcharts['chart_c1-3'] = function (id, myChart) {
         // myChart.showLoading();
-
-        $.get('./data/31.json', function (geoJson) {
-
+        debugger
+        $.get('./data/31.json',{}, function (geoJson) {
+            debugger
             // myChart.hideLoading();
 
             echarts.registerMap('31', geoJson);
@@ -240,7 +240,10 @@
                 ]
             });
             autohover();
+        }, function() {
+            debugger;
         });
+
         function autohover(data) {
             var count = 0;
             var timeTicket = null;

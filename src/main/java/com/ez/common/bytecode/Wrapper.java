@@ -21,7 +21,6 @@ import java.util.regex.Matcher;
 /**
  * Wrapper.
  */
-
 public abstract class Wrapper {
     private static final Map<String, Wrapper> WRAPPER_MAP = new ConcurrentHashMap<String, Wrapper>(); //class wrapper map
     private static final String[] EMPTY_STRING_ARRAY = new String[0];

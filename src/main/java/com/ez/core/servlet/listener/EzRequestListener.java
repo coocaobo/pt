@@ -29,7 +29,7 @@ public class EzRequestListener implements ServletRequestListener {
 
     public void requestInitialized(ServletRequestEvent event) {
         ServletRequest request = event.getServletRequest();
-        logger.info("method: " + ((HttpServletRequest) request).getMethod());
+//        logger.info("method: " + ((HttpServletRequest) request).getMethod());
         HttpSession session = ((HttpServletRequest) request).getSession(true);
         EzThreadLocal.setSession(session);
         EzThreadLocal.setLocalInfo(EzThreadLocal.REQUEST_TIME, System.currentTimeMillis());

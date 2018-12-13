@@ -1,6 +1,9 @@
 package com.ez.core.servlet.filter;
 
+import com.ez.core.server.EzContextHolder;
+import com.ez.kafka.ProducerAsyn;
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContextAware;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +17,21 @@ import java.io.IOException;
 public class BaseFilter implements Filter {
     private static final Logger logger = Logger.getLogger(BaseFilter.class);
 
-    public void init(FilterConfig filterConfig) throws ServletException {
+    private ProducerAsyn producerAsyn;
 
+    public void init(FilterConfig filterConfig) throws ServletException {
+        producerAsyn = (ProducerAsyn) EzContextHolder.getBean("producerAsyn");
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         dealCors(servletRequest, servletResponse);
+        doLogIp(servletRequest.getRemoteHost());
         filterChain.doFilter(servletRequest, servletResponse);
 //        doFilterInternal(servletRequest, servletResponse,filterChain);
+    }
+
+    private void doLogIp(String remoteHost) {
+        producerAsyn.sendMsg("reqIpCount", "reqIpCount", remoteHost);
     }
 
     private void dealCors(ServletRequest servletRequest, ServletResponse servletResponse) {

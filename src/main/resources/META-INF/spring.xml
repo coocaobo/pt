@@ -10,5 +10,8 @@
     <import resource="spring-exp.xml"/>
     <import resource="spring-crm.xml"/>
     <import resource="spring-yj.xml"/>
+    <!--<import resource="spring-hbase.xml"/>-->
+    <import resource="spring-kafka.xml"/>
+    <import resource="spring-mzxx.xml"/>
     <!--<import resource="spring-session.xml"/>-->
 </beans>

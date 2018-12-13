@@ -23,6 +23,8 @@ Ext.define('pt.comp.desktop.DesktopPanel', {
         westPanel.hide();
         items.push(westPanel);
         var mainTabPanel = this.mainTabPanel = this.createCenterPanel();
+        window.EzApp.panel = window.EzApp.panel || {};
+        window.EzApp.panel.mainTabPanel = mainTabPanel;
         items.push(mainTabPanel);
         panel.add(items);
         this.panel = panel;

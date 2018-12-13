@@ -1,10 +1,12 @@
-package com.ez.mvc.controller;
+package test.ireport;
 
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
+import org.springframework.core.io.AbstractResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +28,7 @@ public class IPrintController {
 
     }
 
+
     /**
      * List<JasperPrint>
      */
@@ -34,17 +37,26 @@ public class IPrintController {
     }
 
     public static void main(String[] args) {
+
+        String a = "abcd";
+        a.intern();
+
+        System.out.println(a);
+        System.out.println(a.intern());
+    }
+
+    public static void main1(String[] args) {
         JasperPrint print = null;
         try {
 
-            InputStream is = new FileInputStream("C:/Users/Administrator/Desktop/report1.jasper");
+            InputStream is = new FileInputStream("E:\\Lock\\99.mypro\\pt\\src\\main\\java\\test\\ireport/report1.jasper");
             Map map = new HashMap();
 
             List<Map<String, Object>> list = new ArrayList<>();
 
             for( int i = 0;i < 100; i ++) {
                 Map<String, Object>  tmp = new HashMap<>();
-                tmp.put("aCTIONICON", "1" + i);
+                tmp.put("ACTIONICON", "1" + i);
                 list.add(tmp);
             }
 
@@ -62,7 +74,7 @@ public class IPrintController {
             e.printStackTrace();
         }
     }
-    public static void main1(String[] args) {
+    public static void main2(String[] args) {
         Map parameters = new HashMap();
         ByteArrayOutputStream outPut = new ByteArrayOutputStream();
         FileOutputStream outputStream = null;

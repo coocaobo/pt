@@ -7,6 +7,7 @@ import com.ez.core.service.ILogOn;
 import com.ez.core.service.resource.boot.BootService;
 import com.ez.mvc.controller.support.Constains;
 import com.ez.util.EzStrUtil;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import java.util.Map;
  */
 @Controller
 public class LogonController {
+    Logger log = Logger.getLogger(LogonController.class);
 
     @Autowired
     private ILogOn logonService;
@@ -54,10 +56,12 @@ public class LogonController {
             sessionInfo.put(Constains.SESSION_LOGONINFO, userInfo);
             EzThreadLocal.setSessionInfo(Constains.SESSION_USERINFO, sessionInfo);
         } catch (BaseException e) {
+            log.error(e);
             e.printStackTrace();
             ezRes.setCode(e.getErrCode());
             ezRes.setMsg(e.getMessage());
         } catch (Exception e) {
+            log.error(e);
             e.printStackTrace();
             ezRes.setCode(EzCode.ERROR_SERVER_UNCATCH);
             ezRes.setMsg(e.getMessage());
@@ -115,18 +119,22 @@ public class LogonController {
             body.put(Constains.SYSTEM_DATA, System.currentTimeMillis());
             ezRes.setBody(body);
         } catch (BusiException e) {
+            log.error(e);
             ezRes.setCode(e.getErrCode());
             ezRes.setMsg(e.getMessage());
             e.printStackTrace();
         } catch (ServiceException e) {
+            log.error(e);
             ezRes.setCode(e.getErrCode());
             ezRes.setMsg(e.getMessage());
             e.printStackTrace();
         } catch (ServerException e) {
+            log.error(e);
             ezRes.setCode(e.getErrCode());
             ezRes.setMsg(e.getMessage());
             e.printStackTrace();
         } catch(Exception e) {
+            log.error(e);
             ezRes.setCode(EzCode.ERROR_SERVER_UNCATCH);
             ezRes.setMsg(e.getMessage());
             e.printStackTrace();

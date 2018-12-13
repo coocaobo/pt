@@ -218,4 +218,9 @@ public class BaseDao implements IDao {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+
+
+    public SessionFactory getSessionFactory() {
+        return this.sessionFactory ;
+    }
 }
